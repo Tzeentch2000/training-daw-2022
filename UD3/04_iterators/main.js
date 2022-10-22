@@ -30,21 +30,31 @@ var pilots = [
 ];
 
 function iterateSimple() {
+  for(let pilot of pilots){
+    console.log(pilot)
+  }
 }
 function iterateForEach() {
+  pilots.forEach(pilot => console.log(pilot))
 }
 function mapIds() {
+  return pilots.map(pilot => pilot.id)
 }
 function rebels() {
+  return pilots.filter(pilot => pilot.faction === 'Rebels')
 }
 function totalFaction(faction) {
+  return pilots.filter(pilot => pilot.faction === faction).length
 }
 function avgYears(faction) {
+  return pilots.filter(pilot => pilot.faction === faction)
+  .reduce((previousPilot,currentPilot) => previousPilot + currentPilot.years,0)/totalFaction(faction)
 }
 
 // use console.log
-iterateSimple()
-iterateForEach()
+//iterateSimple()
+//iterateForEach()
+
 try {
   assert.deepStrictEqual(mapIds(), [2,8,40,66])
   assert.deepStrictEqual(rebels(), [pilots[0], pilots[3]])
