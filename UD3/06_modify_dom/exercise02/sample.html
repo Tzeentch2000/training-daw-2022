@@ -5,13 +5,35 @@
 <script type="text/javascript">
 window.onload = function() {
 	// Numero de enlaces de la pagina
-
+	console.log(document.getElementsByTagName('a').length)
 	// Direccion del penultimo enlace
-
-	// Numero de enlaces que apuntan a http://prueba
+	console.log(document.getElementsByTagName('a')[document.getElementsByTagName('a').length-2])
+	// Numero de enlaces que apuntan a http://prueba/
+	//console.log(document.querySelectorAll('a[href*="http://prueba/"]').length)
+	console.log(document.querySelectorAll('a[href="http://prueba/"]').length)
+	//También puede hacerse de la siguiente forma
 
 	// Numero de enlaces del tercer párrafo
+	console.log(document.querySelectorAll('p:nth-child(3) a').length)
+	// Crear un p dentro de un div y añadirlo
+	let div = document.createElement('div')
+	let p = document.createElement('p')
+	p.innerText ='Esto es un párrafo creado desde js'
+	div.appendChild(p)
+	//document.body.appendChild(div)
+	document.getElementsByTagName('p')[0].appendChild(div)
 
+	/*
+	Su ejemplo
+	let aDiv = document.createElement('div')
+	let aParragraph = document.createElement('p')
+
+	aDiv.classList = 'ejempplo'
+	aParragraph.innerText = 'Soy un texto'
+
+	aDiv.appendChild(aParragraph)
+	document.getElementsByTagName('p')[0]
+			.appendChild(aDiv)*/
 }
 </script>
 </head>
